@@ -24,28 +24,28 @@ command_list = command.split(" ")
 
 for c in command_list:
     if "fd" in c:
-        if len(c) > 2:
+        if "_" in c:
             c_split = c.split("_")
             turtle_list[turtle_position - 1].forward(int(c_split[1]))
         else:
             step_forward = float(input("How many pixel: "))
             turtle_list[turtle_position - 1].forward(step_forward)
     elif "bd" in c:
-        if len(c) > 2:
+        if "_" in c:
             c_split = c.split("_")
             turtle_list[turtle_position - 1].backward(int(c_split[1]))
         else:
             step_backward = float(input("How many pixel: "))
             turtle_list[turtle_position - 1].backward(step_backward)
     elif "lt" in c:
-        if len(c) > 2:
+        if "_" in c:
             c_split = c.split("_")
             turtle_list[turtle_position - 1].left(int(c_split[1]))
         else:
             left_angle = float(input("Angle to turn: "))
             turtle_list[turtle_position - 1].left(left_angle)
     elif "rt" in c:
-        if len(c) > 2:
+        if "_" in c:
             c_split = c.split("_")
             turtle_list[turtle_position - 1].right(int(c_split[1]))
         else:
@@ -53,6 +53,7 @@ for c in command_list:
             turtle_list[turtle_position - 1].right(right_angle)
     else:
         pass
+
 
 
 mainloop()
