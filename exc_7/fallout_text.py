@@ -137,7 +137,8 @@ elif destination == 1:
             opt_loop = 0
             print("You decided to group up with him.")
             enter()
-            player["Heath"] += randint(70, 120)
+            player_full_hp += randint(70, 120)
+            player["Heath"] = player_full_hp
             player["Armor"] += 1
             player["Melee Damage"] += randint(1, 3)
             player["Speed"] *= 2
@@ -377,6 +378,8 @@ if player["Lvl"] > 1:
     player_full_hp += 50
     player["Heath"] = player_full_hp
     player["Speed"] += 2
+    print("Player Heath:", player["Heath"])
+    print("Player Speed:", player["Speed"])
 else:
     pass
 if player["Heath"] > 0:
@@ -455,8 +458,9 @@ if player["Heath"] > 0:
                     while combat_seq == 1:
                         player_dmg = player["Melee Damage"] - zombie["Armor"]
                         zombie_dmg = zombie["Melee Damage"] - player["Armor"]
+                        player_long_dmg = player["Long range Damage"] - zombie["Armor"]
                         if player["Heath"] > 0 and zombie["Heath"] > 0:
-                            cmd = input("What do you want to do? (Melee Attack, Dodge, Block or Heal) ")
+                            cmd = input("What do you want to do? (Long range Attack, Melee Attack, Dodge, Block or Heal) ")
                             if cmd == "melee attack" or cmd == "Melee Attack":
                                 if player["Speed"] == zombie["Speed"]:
                                     print("Both of you bited each other at the same time.")
@@ -500,11 +504,32 @@ if player["Heath"] > 0:
                                     print("You can't block shit!")
                                     player["Heath"] -= zombie_dmg
                                     print("Your Health:", player["Heath"])
+                            elif cmd == "Long range Attack" or cmd == "long range attack":
+                                hit_chance = randint(1, 100)
+                                if hit_chance > 50:
+                                    print("You shot the zombie chest.")
+                                    zombie["Heath"] -= player_long_dmg
+                                    if zombie["Heath"] > 0:
+                                        print("Enemy bite you in the nuts!")
+                                        player["Heath"] -= zombie_dmg
+                                    print("Your Health:", player["Heath"])
+                                    print("Enemy Heath:", zombie["Heath"])
+                                elif hit_chance <= 50:
+                                    print("You missed the shot.")
+                                    if zombie["Heath"] > 0:
+                                        print("Enemy bite you in the nuts!")
+                                        player["Heath"] -= zombie_dmg
+                                    print("Your Health:", player["Heath"])
                             elif cmd == "heal" or cmd == "Heal":
-                                if med == 1:
-                                    player["Heath"] = player_full_hp
-                                if med == 0:
-                                    print("You don't have any [Medkit] left")
+                                if player["Heath"] < player_full_hp:
+                                    if med == 1:
+                                        player["Heath"] = player_full_hp
+                                        print("Your Health:", player["Heath"])
+                                        med -= 1
+                                    elif med == 0:
+                                        print("You don't have any [Medkit] left")
+                                elif player["Heath"] == player_full_hp:
+                                    print("Your heath are full!")
                             else:
                                 print("I can't understand your command!")
                         elif player["Heath"] < 1:
@@ -533,8 +558,9 @@ if player["Heath"] > 0:
                         while combat_seq == 1:
                             player_dmg = player["Melee Damage"] - zombie["Armor"]
                             zombie_dmg = zombie["Melee Damage"] - player["Armor"]
+                            player_long_dmg = player["Long range Damage"] - zombie["Armor"]
                             if player["Heath"] > 0 and zombie["Heath"] > 0:
-                                cmd = input("What do you want to do? (Melee Attack, Dodge, Block or Heal) ")
+                                cmd = input("What do you want to do? (Long range Attack, Melee Attack, Dodge, Block or Heal) ")
                                 if cmd == "melee attack" or cmd == "Melee Attack":
                                     if player["Speed"] == zombie["Speed"]:
                                         print("Both of you bited each other at the same time.")
@@ -578,11 +604,32 @@ if player["Heath"] > 0:
                                         print("You can't block shit!")
                                         player["Heath"] -= zombie_dmg
                                         print("Your Health:", player["Heath"])
-                                elif cmd == "heal" or cmd == "Heal":
-                                    if med == 1:
-                                        player["Heath"] = player_full_hp
-                                    if med == 0:
-                                        print("You don't have any [Medkit] left")
+                                elif cmd == "Long range Attack" or cmd == "long range attack":
+                                    hit_chance = randint(1, 100)
+                                    if hit_chance > 50:
+                                        print("You shot the zombie chest.")
+                                        zombie["Heath"] -= player_long_dmg
+                                        if zombie["Heath"] > 0:
+                                            print("Enemy bite you in the nuts!")
+                                            player["Heath"] -= zombie_dmg
+                                        print("Your Health:", player["Heath"])
+                                        print("Enemy Heath:", zombie["Heath"])
+                                    elif hit_chance <= 50:
+                                        print("You missed the shot.")
+                                        if zombie["Heath"] > 0:
+                                            print("Enemy bite you in the nuts!")
+                                            player["Heath"] -= zombie_dmg
+                                        print("Your Health:", player["Heath"])
+                                    elif cmd == "heal" or cmd == "Heal":
+                                        if player["Heath"] < player_full_hp:
+                                            if med == 1:
+                                                player["Heath"] = player_full_hp
+                                                print("Your Health:", player["Heath"])
+                                                med -= 1
+                                            elif med == 0:
+                                                print("You don't have any [Medkit] left")
+                                        elif player["Heath"] == player_full_hp:
+                                            print("Your heath are full!")
                                 else:
                                     print("I can't understand your command!")
                             elif player["Heath"] < 1:
@@ -634,8 +681,9 @@ if player["Heath"] > 0:
             while combat_seq == 1:
                 player_dmg = player["Melee Damage"] - wolf["Armor"]
                 wolf_dmg = wolf["Melee Damage"] - player["Armor"]
+                player_long_dmg = player["Long range Damage"] - wolf["Armor"]
                 if player["Heath"] > 0 and wolf["Heath"] > 0:
-                    cmd = input("What do you want to do? (Melee Attack, Dodge or Block) ")
+                    cmd = input("What do you want to do? (Long range Attack, Melee Attack, Dodge, Block or Heal) ")
                     if cmd == "melee attack" or cmd == "Melee Attack":
                         if player["Speed"] == wolf["Speed"]:
                             print("Both of you bited each other at the same time.")
@@ -679,11 +727,31 @@ if player["Heath"] > 0:
                             print("You can't block shit!")
                             player["Heath"] -= wolf_dmg
                             print("Your Health:", player["Heath"])
-                    elif cmd == "heal" or cmd == "Heal":
-                        if med == 1:
-                            player["Heath"] = player_full_hp
-                        if med == 0:
-                            print("You don't have any [Medkit] left")
+                    elif cmd == "Long range Attack" or cmd == "long range attack":
+                        hit_chance = randint(1, 100)
+                        if hit_chance > 50:
+                            print("You shot the the wolfy ass!.")
+                            wolf["Heath"] -= player_long_dmg
+                            if wolf["Heath"] > 0:
+                                print("Enemy bite you in the nuts!")
+                                player["Heath"] -= wolf_dmg
+                            print("Your Health:", player["Heath"])
+                            print("Enemy Heath:", wolf["Heath"])
+                        elif hit_chance <= 50:
+                            print("You missed the shot.")
+                            print("Enemy bite you in the nuts!")
+                            player["Heath"] -= wolf_dmg
+                            print("Your Health:", player["Heath"])
+                        elif cmd == "heal" or cmd == "Heal":
+                            if player["Heath"] < player_full_hp:
+                                if med == 1:
+                                    player["Heath"] = player_full_hp
+                                    print("Your Health:", player["Heath"])
+                                    med -= 1
+                                elif med == 0:
+                                    print("You don't have any [Medkit] left")
+                            elif player["Heath"] == player_full_hp:
+                                print("Your heath are full!")
                     else:
                         print("I can't understand your command!")
                 elif player["Heath"] < 1:
@@ -697,8 +765,9 @@ if player["Heath"] > 0:
             while combat_seq == 1:
                 player_dmg = player["Melee Damage"] - betrayal["Armor"]
                 betrayal_dmg = betrayal["Melee Damage"] - player["Armor"]
+                player_long_dmg = player["Long range Damage"] - betrayal["Armor"]
                 if player["Heath"] > 0 and betrayal["Heath"] > 0:
-                    cmd = input("What do you want to do? (Melee Attack, Dodge or Block) ")
+                    cmd = input("What do you want to do? (Long range Attack, Melee Attack, Dodge, Block or Heal) ")
                     if cmd == "melee attack" or cmd == "Melee Attack":
                         if player["Speed"] == betrayal["Speed"]:
                             print("Both of you punched each other at the same time.")
@@ -742,11 +811,31 @@ if player["Heath"] > 0:
                             print("You can't block shit!")
                             player["Heath"] -= betrayal_dmg
                             print("Your Health:", player["Heath"])
-                    elif cmd == "heal" or cmd == "Heal":
-                        if med == 1:
-                            player["Heath"] = player_full_hp
-                        if med == 0:
-                            print("You don't have any [Medkit] left")
+                    elif cmd == "Long range Attack" or cmd == "long range attack":
+                        hit_chance = randint(1, 100)
+                        if hit_chance > 50:
+                            print("You shot the enemy dick.")
+                            betrayal["Heath"] -= player_long_dmg
+                            if betrayal["Heath"] > 0:
+                                print("Enemy kicked you in the ass!")
+                                player["Heath"] -= betrayal_dmg
+                            print("Your Health:", player["Heath"])
+                            print("Enemy Heath:", betrayal["Heath"])
+                        elif hit_chance <= 50:
+                            print("You missed the shot.")
+                            print("Enemy kicked you in the ass!")
+                            player["Heath"] -= betrayal_dmg
+                            print("Your Health:", player["Heath"])
+                        elif cmd == "heal" or cmd == "Heal":
+                            if player["Heath"] < player_full_hp:
+                                if med == 1:
+                                    player["Heath"] = player_full_hp
+                                    print("Your Health:", player["Heath"])
+                                    med -= 1
+                                elif med == 0:
+                                    print("You don't have any [Medkit] left")
+                            elif player["Heath"] == player_full_hp:
+                                print("Your heath are full!")
                     else:
                         print("I can't understand your command!")
                 elif player["Heath"] < 1:
@@ -760,8 +849,9 @@ if player["Heath"] > 0:
             while combat_seq == 1:
                 player_dmg = player["Melee Damage"] - zombie["Armor"]
                 zombie_dmg = zombie["Melee Damage"] - player["Armor"]
+                player_long_dmg = player["Long range Damage"] - zombie["Armor"]
                 if player["Heath"] > 0 and zombie["Heath"] > 0:
-                    cmd = input("What do you want to do? (Melee Attack, Dodge, Block or Heal) ")
+                    cmd = input("What do you want to do? (Long range Attack, Melee Attack, Dodge, Block or Heal) ")
                     if cmd == "melee attack" or cmd == "Melee Attack":
                         if player["Speed"] == zombie["Speed"]:
                             print("Both of you bited each other at the same time.")
@@ -805,11 +895,31 @@ if player["Heath"] > 0:
                             print("You can't block shit!")
                             player["Heath"] -= zombie_dmg
                             print("Your Health:", player["Heath"])
-                    elif cmd == "heal" or cmd == "Heal":
-                        if med == 1:
-                            player["Heath"] = player_full_hp
-                        if med == 0:
-                            print("You don't have any [Medkit] left")
+                    elif cmd == "Long range Attack" or cmd == "long range attack":
+                        hit_chance = randint(1, 100)
+                        if hit_chance > 50:
+                            print("You shot the zombie chest.")
+                            zombie["Heath"] -= player_long_dmg
+                            if zombie["Heath"] > 0:
+                                print("Enemy bite you in the nuts!")
+                                player["Heath"] -= zombie_dmg
+                            print("Your Health:", player["Heath"])
+                            print("Enemy Heath:", zombie["Heath"])
+                        elif hit_chance <= 50:
+                            print("You missed the shot.")
+                            print("Enemy bite you in the nuts!")
+                            player["Heath"] -= zombie_dmg
+                            print("Your Health:", player["Heath"])
+                        elif cmd == "heal" or cmd == "Heal":
+                            if player["Heath"] < player_full_hp:
+                                if med == 1:
+                                    player["Heath"] = player_full_hp
+                                    print("Your Health:", player["Heath"])
+                                    med -= 1
+                                elif med == 0:
+                                    print("You don't have any [Medkit] left")
+                            elif player["Heath"] == player_full_hp:
+                                print("Your heath are full!")
                     else:
                         print("I can't understand your command!")
                 elif player["Heath"] < 1:
