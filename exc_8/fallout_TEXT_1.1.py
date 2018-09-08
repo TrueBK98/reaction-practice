@@ -1,6 +1,19 @@
 from random import randint
 
 
+def replay():
+    while True:
+        cmd = input("Try again? (Yes or No) ")
+        cmd.lower()
+        if cmd == "yes":
+            start()
+            break
+        elif cmd == "no":
+            break
+        else:
+            print("I can't understand that!")
+
+
 def combat(attacker, defender, max_hp):
     if attacker["Health"] > 0 and defender["Health"] > 0:
         cmd = input("What do you want to do? (Melee, Shoot, Dodge, Block or Heal) ")
@@ -402,6 +415,9 @@ def start():
                 if player["Luck"] <= 5:
                     print("-Then die!!! He screamed at you.")
                     enter()
+                    for key, value in betrayal.items():
+                        print(key + ":", value)
+                    enter()
                     combat(player, betrayal, player_full_hp)
                     break
                 else:
@@ -453,13 +469,9 @@ def start():
                     enter()
                     print("Thank you so much. Let's beat this son of a bitch together!")
                     enter()
-                    print("Enemy Name:", wolf["Name"])
-                    print("Enemy Level:", wolf["Lvl"])
-                    print("Enemy Health:", wolf["Health"])
-                    print("Enemy Armor:", wolf["Armor"])
-                    print("Enemy Melee Damage:", wolf["Melee Damage"])
-                    print("Enemy Speed:", wolf["Speed"])
-                    print("Enemy Luck:", wolf["Luck"])
+                    for key, value in wolf.items():
+                        print(key + ":", value)
+                    enter()
                     combat(player, wolf, player_full_hp)
                     break
                 elif cmd == "ignore":
@@ -539,13 +551,9 @@ def start():
                     cmd = input("What do you want to do? (Fight or Run) ")
                     cmd.lower()
                     if cmd == "fight":
-                        print("Enemy Name:", zombie["Name"])
-                        print("Enemy Level:", zombie["Lvl"])
-                        print("Enemy Health:", zombie["Health"])
-                        print("Enemy Armor:", zombie["Armor"])
-                        print("Enemy Melee Damage:", zombie["Melee Damage"])
-                        print("Enemy Speed:", zombie["Speed"])
-                        print("Enemy Luck:", zombie["Luck"])
+                        for key, value in zombie.items():
+                            print(key + ":", value)
+                        enter()
                         combat(player, zombie, player_full_hp)
                         break
                     elif cmd == "run":
@@ -554,13 +562,9 @@ def start():
                         else:
                             print("The zombie is too fast to escape!")
                             enter()
-                            print("Enemy Name:", zombie["Name"])
-                            print("Enemy Level:", zombie["Lvl"])
-                            print("Enemy Health:", zombie["Health"])
-                            print("Enemy Armor:", zombie["Armor"])
-                            print("Enemy Melee Damage:", zombie["Melee Damage"])
-                            print("Enemy Speed:", zombie["Speed"])
-                            print("Enemy Luck:", zombie["Luck"])
+                            for key, value in zombie.items():
+                                print(key + ":", value)
+                            enter()
                             combat(player, zombie, player_full_hp)
                             break
                     else:
@@ -571,14 +575,26 @@ def start():
             print("Only about 100 meters away from Havani, you encountered a", encounter)
             enter()
             print("You're too tired to run away, so you must fight.")
+            enter()
             if encounter == "Wolf":
+                for key, value in wolf.items():
+                    print(key + ":", value)
+                enter()
                 combat(player, wolf, player_full_hp)
             elif encounter == "Thieve":
+                for key, value in thieve.items():
+                    print(key + ":", value)
+                enter()
                 combat(player, thieve, player_full_hp)
             elif encounter == "Zombie":
+                for key, value in zombie.items():
+                    print(key + ":", value)
+                enter()
                 combat(player, thieve, player_full_hp)
     if player["Health"] > 0:
         print("To be continue>")
+    else:
+        replay()
 
 
 begin = input("Press Enter to start.")
