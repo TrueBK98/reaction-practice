@@ -1,62 +1,3 @@
-from random import choice
-
-
-items = []
-food_types = ["bánh bao", "cơm", "mỳ"]
-cook_types = ["hấp", "chiên", "luộc"]
-food_levels = ["rẻ", "thường", "đắt"]
-
-
-def use_item(user, item):
-    for k, v in item.items():
-        if k == "NAME":
-            pass
-        else:
-            user[k] += item[k]
-
-
-def item_after_cmbt(player):
-    new_item = generate_item()
-    print("A", new_item["NAME"], "just dropped.")
-    while True:
-        print("1. View")
-        print("2. Pick Up")
-        print("3. Use")
-        print("4. Leave")
-        option = input(">>>")
-        if option == "1":
-            show_item(new_item)
-        elif option == "2":
-            print("You picked it up!")
-            add_item(new_item)
-            count_items()
-            break
-        elif option == "3":
-            use_item(player, new_item)
-            for k, v in player.items():
-                print(k + ":", v)
-            break
-        elif option == "4":
-            print("Naniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii?")
-            break
-        else:
-            print("You motherfecker!")
-
-
-def add_item(item):
-    items.append(item)
-
-
-def count_items():
-    count = len(items)
-    print("You have", count, "stuff in your inventory.")
-
-
-def generate_item_names():
-    f = choice(food_types)
-    c = choice(cook_types)
-    t = choice(food_levels)
-    item_name = f + " " + c + " " + t
     return item_name
 
 
@@ -158,3 +99,9 @@ def show_item(game_item):
 # inventory = [steel_gaunlet, bronze_shield, golden_stick]
 # for item in inventory:
 #     show_item(item)
+
+
+def show_items():
+    print("Your inventory:")
+    for i in items:
+        print(str(items.index(i) + 1) + ".", i["NAME"])
