@@ -1,3 +1,60 @@
+from random import choice
+
+
+items = []
+food_types = ["bánh bao", "cơm", "mỳ"]
+cook_types = ["hấp", "chiên", "luộc"]
+food_levels = ["rẻ", "thường", "đắt"]
+
+
+def use_item(user):
+    show_items()
+    item_position = int(input(">>> "))
+    item2use = items[item_position - 1]
+    for k, v in item2use.items():
+        if k == "NAME":
+            pass
+        else:
+            user[k] += item2use[k]
+    items.remove(item2use)
+
+
+def item_after_cmbt():
+    new_item = generate_item()
+    print("A", new_item["NAME"], "just dropped.")
+    while True:
+        print("1. View")
+        print("2. Pick Up")
+        print("3. Leave")
+        option = input(">>> ")
+        if option == "1":
+            show_item(new_item)
+        elif option == "2":
+            print("You picked it up!")
+            add_item(new_item)
+            count_items()
+            break
+        elif option == "3":
+            print("Naniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii?")
+            break
+        else:
+            print("You motherfecker!")
+
+
+def add_item(item):
+    items.append(item)
+
+
+def count_items():
+    count = len(items)
+    print("You have", count, "stuff in your inventory.")
+
+
+def generate_item_names():
+    f = choice(food_types)
+    c = choice(cook_types)
+    t = choice(food_levels)
+    item_name = f + " " + c + " " + t
     return item_name
 
 
