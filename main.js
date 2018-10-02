@@ -1,8 +1,6 @@
 while(true) {
-    console.log("Username must have at least 1 uppercase and 1 lowercase character.")
-    console.log("Password must contain atleast 7 characters.")
-    var username = prompt("Username: ");
-    var password = prompt("Password: ");
+    var username = prompt("Username must have at least 1 uppercase and 1 lowercase character.\nUsername: ");
+    var password = prompt("Password must contain atleast 7 characters.\nPassword: ");
     var retype_password = prompt("Retype Password: ")
     var email = prompt("Email: ");
 
