@@ -1,0 +1,32 @@
+/* h1 {
+color: red;
+}
+#line-1 {
+color: brown;
+}
+#blah {
+font-family: 'Pacifico', cursive;
+font-size: 34px;
+}
+
+.text-right {
+text-align: right;
+text-transform: uppercase;
+font-weight: 200;
+}
+ */
+
+ #background-ele {
+     height: 500px;
+     width: 100%;
+     background-color: lightgray;
+     background-image: url("https://www.desktophut.com/wp-content/uploads/2018/02/4K-Moving-Stars-Live-Wallpaper-1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+ }
+
+ .bg-lightgreen {
+     width: 100%;
+     height: 1000px;
+     background-color: lightgreen;
+ }
