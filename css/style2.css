@@ -1,0 +1,16 @@
+.flag {
+    width: 33.33%;
+    height: 133.33px;
+}
+
+#upper-color {
+    background-color: red;
+}
+
+#middle-color {
+    background-color: white;
+}
+
+#under-color {
+    background-color: blue;
+}

@@ -45,7 +45,8 @@ def combat_full(player, opponent):
         print("Bạn muốn:")
         print("1. Đánh tiếp")
         print("2. Chạy")
-        print("3. Tự động đánh")
+        print("3. Dùng đồ")
+        print("4. Tự động đánh")
         option = input(">>> ")
         if option == "1":
             print("Nhào zô")
@@ -57,10 +58,15 @@ def combat_full(player, opponent):
             else:
                 print("Chạy trốn không thành công, bạn quay trở lại cuộc chiến")
         elif option == "3":
+            use_item(player)
+            for k, v in player.items():
+                print(k + ":", v)
+        elif option == "4":
             print("Bài tập về nhà, hihi")
-
+        else:
+            print("Bị ngu à?!")
     if player["HP"] <= 0:
         print("Lost")
     else:
         print(opponent["NAME"], "died")
-        item_after_cmbt(player)
+        item_after_cmbt()

@@ -1,4 +1,5 @@
 from combat import combat_full
+from inventory import *
 
 player = {
     "NAME": "MAD",
@@ -10,7 +11,7 @@ player = {
     "LVL": 1,
     "LUCK": 10,
 }
-
+items.append(generate_item())
 cmd = input("Your command? ")
 
 if cmd == "stats":

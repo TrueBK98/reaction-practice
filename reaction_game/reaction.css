@@ -1,0 +1,31 @@
+#counter {
+    width: 15%;
+    height: 50px;
+    background-color: red;
+
+}
+
+.flex {
+    display: flex;
+}
+
+.jc-flex-end {
+    justify-content: flex-end;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+button {
+    width: 70px;
+    height: 29px;
+}
+
+#container {
+    height: 600px;
+}

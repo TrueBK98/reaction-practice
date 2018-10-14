@@ -27,6 +27,7 @@ def start():
     inventory = []
     companions = 0
     destination = 0
+    drop(inventory, betrayal)
     print("-The time is here! It's time to go out there and take back America!")
     enter()
     print("The voice resounding through out the Vault, Vault 88.")

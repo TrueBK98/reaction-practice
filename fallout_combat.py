@@ -1,5 +1,6 @@
 from random import randint
 from fallout_inventory import *
+from fallout_drop_n_loot import *
 
 
 def critical_calc(target):

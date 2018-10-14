@@ -8,33 +8,37 @@ thieve_drop = [colt_1911, rusty_axe, medkit]
 
 
 def drop(player_invent, enemy):
-    loot_chance = randint(1, 20)
+    loot_chance = randint(1, 3)
     if enemy["Name"] == "Betrayal":
         if loot_chance > len(betrayal_drop):
             pass
         else:
-            print("Enemy dropped a", betrayal_drop[loot_chance - 1])
+            item = betrayal_drop[loot_chance - 1]
+            print("Enemy dropped a", item["Name"])
             player_invent = loot(player_invent, betrayal_drop[loot_chance - 1])
 
     elif enemy["Name"] == "Wolf":
         if loot_chance > len(wolf_drop):
             pass
         else:
-            print("Enemy dropped a", wolf_drop[loot_chance - 1])
+            item = wolf_drop[loot_chance - 1]
+            print("Enemy dropped a", item["Name"])
             player_invent = loot(player_invent, wolf_drop[loot_chance - 1])
 
     elif enemy["Name"] == "Zombie":
         if loot_chance > len(zombie_drop):
             pass
         else:
-            print("Enemy dropped a", zombie_drop[loot_chance - 1])
+            item = zombie_drop[loot_chance - 1]
+            print("Enemy dropped a", item["Name"])
             player_invent = loot(player_invent, zombie_drop[loot_chance - 1])
 
     elif enemy["Name"] == "Thieve":
         if loot_chance > len(thieve_drop):
             pass
         else:
-            print("Enemy dropped a", thieve_drop[loot_chance - 1])
+            item = thieve_drop[loot_chance - 1]
+            print("Enemy dropped a", item["Name"])
             player_invent = loot(player_invent, thieve_drop[loot_chance - 1])
     return player_invent
 
