@@ -2,13 +2,11 @@ var circle = document.querySelector('#circle');
 var counter = document.querySelector('#counter')
 var container = document.querySelector("#container")
 var start = document.querySelector("#start")
+var header = document.querySelector("#header")
+var tutorials = document.querySelectorAll(".tutorials") 
 var setTimer;
 var milliseconds = 2000;
 var numCircle = 0;
-
-counter.style.fontSize = "xx-large";
-counter.style.fontWeight = "bold";
-counter.style.fontFamily = "Raleway, sans-serif";
 
 function judge() {
     var score = document.createElement("h1")
@@ -18,21 +16,21 @@ function judge() {
     }
     else if (numCircle <= 12) {
         var scoreText = document.createTextNode("Quite Slow")
-        score.style.color = "gray";
+        score.style.color = "white";
     }
     else if (numCircle <= 18) {
         var scoreText = document.createTextNode("Average")
         score.style.color = "blue";
     }
-    else if (numCircle <= 21) {
+    else if (numCircle <= 22) {
         var scoreText = document.createTextNode("Quite Fast")
         score.style.color = "orange";
     }
-    else if (numCircle <= 27) {
+    else if (numCircle <= 30) {
         var scoreText = document.createTextNode("Fast")
         score.style.color = "red";
     }
-    else if (numCircle > 27) {
+    else if (numCircle > 30) {
         var scoreText = document.createTextNode("Inhuman")
         score.style.color = "gold";
     }
@@ -127,12 +125,6 @@ function applyMargin() {
     timer();
 }
 
-circle = circle.getContext("2d");
-circle.beginPath();
-circle.arc(150, 75, 75, 0, 2 * Math.PI);
-circle.fillStyle = "green"
-circle.fill();
-
 function play() {
     containerInitial();
     document.getElementById("circle").style.display = "initial";
@@ -143,10 +135,25 @@ function play() {
 }
 
 document.getElementById("start").addEventListener("click", () => {
-    container.removeChild(start)
+    container.removeChild(start);
+    tutorials.forEach( (tutorial) => {
+        container.removeChild(tutorial);
+    });
+    header.remove();
     play();
 });
+
+counter.style.fontSize = "xx-large";
+counter.style.fontWeight = "bold";
+counter.style.fontFamily = "Raleway, sans-serif";
+
+circle = circle.getContext("2d");
+circle.beginPath();
+circle.arc(150, 75, 75, 0, 2 * Math.PI);
+circle.fillStyle = "green"
+circle.fill();
 
 document.getElementById("circle").style.display = "none";
 document.getElementById("counter").style.display = "none";
 
+container.style.flexDirection = "column"
