@@ -1,3 +1,7 @@
+body {
+    background-color: cornflowerblue;
+}
+
 #counter {
     width: 15%;
     height: 50px;
@@ -28,4 +32,22 @@ button {
 
 #container {
     height: 600px;
+}
+
+.tutorials {
+    font-size: 125%;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#header {
+    margin-top: -25px;
+    margin-bottom: -75px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 300%;
+    color: palevioletred;
 }
