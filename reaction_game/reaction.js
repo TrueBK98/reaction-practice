@@ -4,9 +4,11 @@ var container = document.querySelector("#container")
 var start = document.querySelector("#start")
 var header = document.querySelector("#header")
 var tutorials = document.querySelectorAll(".tutorials") 
+var read_more = document.querySelector("#read_more")
 var setTimer;
 var milliseconds = 2000;
 var numCircle = 0;
+var tutorialDisplay = false;
 
 function judge() {
     var score = document.createElement("h1")
@@ -114,9 +116,9 @@ function cancelTimer() {
 }
 
 function randomMargin() {
-    marginTop = Math.random() * 450
-    marginLeft = Math.random() * 1100
-    return `${marginTop}px ${marginLeft}px -10px`
+    marginTop = Math.random() * 32
+    marginLeft = Math.random() * 75
+    return `${marginTop}% ${marginLeft}% -10px`
 };
 
 function applyMargin() {
@@ -129,6 +131,7 @@ function play() {
     containerInitial();
     document.getElementById("circle").style.display = "initial";
     document.getElementById("counter").style.display = "initial";
+    document.getElementById("counter").style.display = "flex";
     circleCounter();
     applyMargin()
     document.getElementById("circle").addEventListener("mouseenter", mouseEntered);
@@ -140,10 +143,26 @@ document.getElementById("start").addEventListener("click", () => {
         container.removeChild(tutorial);
     });
     header.remove();
+    container.removeChild(read_more)
     play();
 });
 
-counter.style.fontSize = "xx-large";
+document.getElementById("read_more").addEventListener("click", () => {
+    if (tutorialDisplay == false) {
+        tutorials.forEach( (tutorial) => {
+            tutorial.style.display = "initial"
+        })
+        tutorialDisplay = true
+    }
+    else {
+        tutorials.forEach( (tutorial) => {
+            tutorial.style.display = "none"
+        })
+        tutorialDisplay = false
+    }
+})
+
+counter.style.fontSize = "x-large";
 counter.style.fontWeight = "bold";
 counter.style.fontFamily = "Raleway, sans-serif";
 
