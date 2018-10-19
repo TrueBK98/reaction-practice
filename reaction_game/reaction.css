@@ -1,12 +1,12 @@
 body {
     background-color: cornflowerblue;
+    width: 100%;
 }
 
 #counter {
     width: 15%;
     height: 50px;
     background-color: red;
-
 }
 
 .flex {
@@ -26,18 +26,20 @@ body {
 }
 
 button {
+    cursor: pointer;
     width: 70px;
     height: 29px;
 }
 
 #container {
-    height: 600px;
+    height: 500px;
 }
 
 .tutorials {
     font-size: 125%;
     margin-bottom: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    display: none;
 }
 
 #header {
@@ -50,4 +52,12 @@ button {
 h1 {
     font-size: 300%;
     color: palevioletred;
+}
+
+#read_more {
+    cursor: pointer;
+    color: red;
+    font-size: 125%;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
