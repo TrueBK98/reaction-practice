@@ -2,7 +2,7 @@ var circle = document.querySelector('#circle');
 var counter = document.querySelector('#counter')
 var container = document.querySelector("#container")
 var start = document.querySelector("#start")
-var header = document.querySelector("#header")
+var header = document.querySelector("#header-text")
 var tutorials = document.querySelectorAll(".tutorials") 
 var read_more = document.querySelector("#read_more")
 var setTimer;
@@ -12,27 +12,27 @@ var tutorialDisplay = false;
 
 function judge() {
     var score = document.createElement("h1")
-    if (numCircle <= 5) {
+    if (numCircle <= 20) {
         var scoreText = document.createTextNode("Slow")
         score.style.color = "brown";
     }
-    else if (numCircle <= 12) {
+    else if (numCircle <= 30) {
         var scoreText = document.createTextNode("Quite Slow")
         score.style.color = "white";
     }
-    else if (numCircle <= 18) {
+    else if (numCircle <= 40) {
         var scoreText = document.createTextNode("Average")
         score.style.color = "blue";
     }
-    else if (numCircle <= 22) {
+    else if (numCircle <= 50) {
         var scoreText = document.createTextNode("Quite Fast")
         score.style.color = "orange";
     }
-    else if (numCircle <= 30) {
+    else if (numCircle <= 70) {
         var scoreText = document.createTextNode("Fast")
         score.style.color = "red";
     }
-    else if (numCircle > 30) {
+    else if (numCircle > 70) {
         var scoreText = document.createTextNode("Inhuman")
         score.style.color = "gold";
     }
@@ -47,7 +47,7 @@ function mouseEntered() {
     cancelTimer();
     numCircle++;
     circleCounter();
-    milliseconds -= (milliseconds / 10); 
+    milliseconds -= (milliseconds / 20); 
     applyMargin();
 }
 
@@ -117,7 +117,7 @@ function cancelTimer() {
 
 function randomMargin() {
     marginTop = Math.random() * 32
-    marginLeft = Math.random() * 75
+    marginLeft = Math.random() * 70
     return `${marginTop}% ${marginLeft}% -10px`
 };
 
@@ -142,8 +142,8 @@ document.getElementById("start").addEventListener("click", () => {
     tutorials.forEach( (tutorial) => {
         container.removeChild(tutorial);
     });
-    header.remove();
     container.removeChild(read_more)
+    container.removeChild(header)
     play();
 });
 
@@ -153,12 +153,14 @@ document.getElementById("read_more").addEventListener("click", () => {
             tutorial.style.display = "initial"
         })
         tutorialDisplay = true
+        read_more.innerHTML = ">Click to hide<"
     }
     else {
         tutorials.forEach( (tutorial) => {
             tutorial.style.display = "none"
         })
         tutorialDisplay = false
+        read_more.innerHTML = ">Click to show<"
     }
 })
 
@@ -175,4 +177,5 @@ circle.fill();
 document.getElementById("circle").style.display = "none";
 document.getElementById("counter").style.display = "none";
 
-container.style.flexDirection = "column"
+container.style.flexDirection = "column";
+container.style.padding = "10px 10px 10px 10px";
