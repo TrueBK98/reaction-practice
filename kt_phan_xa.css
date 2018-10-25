@@ -29,3 +29,19 @@
 body{
     background-color: cadetblue;
 }
+
+.mt-200{
+    margin-top: 200px;
+}
+
+.ml-650{
+    margin-left: 650px;
+}
+
+.w-50{
+    width: 50px;
+}
+
+.h-50{
+    height: 50px;
+}
