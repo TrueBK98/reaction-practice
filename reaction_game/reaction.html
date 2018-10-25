@@ -6,18 +6,20 @@
     <title>Reaction Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="reaction.css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Playfair+Display" rel="stylesheet">
 </head>
 <body>
-    <div id="header">
-    <h1 id="header-text">The Reaction Game</h1>
-    </div>
+        <iframe src="Title Screen - Seth Parker.MP3" allow="autoplay" allow="loop" style="display:none" id="iframeAudio">
+        </iframe> 
     <span class="flex jc-flex-end">
         <span id="counter" class="ai-center jc-center"></span>
     </span>
     <br>
     <span id="container" class="flex jc-center ai-center">
-        <div id="read_more">How to play</div>
+        <h1 id="header-text" data-text="The Reaction Game">The Reaction Game</h1>
+        <div id="read_more">>Click to show<</div>
         <div class="tutorials">How to play: A green circle will randomly appears on the screen.</div>
         <div class="tutorials">Your objective is to drag the mouse onto the circle as fast as you can with limited time.</div>
         <div class="tutorials">Every time you drag the mouse onto the circle, the circle will move to a random position and your time become less.</div>
