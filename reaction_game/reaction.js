@@ -5,6 +5,7 @@ var start = document.querySelector("#start");
 var header = document.querySelector("#header-text");
 var tutorials = document.querySelectorAll(".tutorials");
 var read_more = document.querySelector("#read_more");
+var tutorial_box = document.querySelector("#tutorial-box")
 var setTimer;
 var milliseconds = 2000;
 var numCircle = 0;
@@ -273,10 +274,10 @@ function addReplay(eC, sc) {
 
 function finalCounter(score) {
     var endCounter = document.createElement("p");
-    endCounter.innerText = "Circle = " + numCircle;
+    endCounter.innerText = "Circle(s) = " + numCircle;
     endCounter.style.width = "18%";
     endCounter.style.height = "50px";
-    endCounter.style.backgroundImage  = "url('https://media.istockphoto.com/photos/red-background-picture-id862449748?k=6&m=862449748&s=612x612&w=0&h=TO6RhQwZJn_FUBDrCKEdaG3QszbEsZOXm3lNA_bJMJ8=')";
+    endCounter.style.backgroundImage  = "url('https://orig00.deviantart.net/76e6/f/2018/011/1/c/output_dmfg1x_by_crazyraingirl-dbzpev2.gif')";
     endCounter.style.display = "flex";
     endCounter.style.justifyContent = "center";
     endCounter.style.alignItems = "center";
@@ -302,7 +303,7 @@ function containerInitial() {
 }
 
 function circleCounter() {
-    document.getElementById("counter").innerText = "Circle = " + numCircle
+    document.getElementById("counter").innerText = "Circle(s) = " + numCircle
 }
 
 function end() {
@@ -355,9 +356,7 @@ else {
 
 document.getElementById("start").addEventListener("click", () => {
     container.removeChild(start);
-    tutorials.forEach( (tutorial) => {
-        container.removeChild(tutorial);
-    });
+    container.removeChild(tutorial_box)
     container.removeChild(read_more)
     container.removeChild(header)
     play();
@@ -368,6 +367,7 @@ document.getElementById("read_more").addEventListener("click", () => {
         tutorials.forEach( (tutorial) => {
             tutorial.style.display = "initial"
         })
+        document.getElementById("tutorial-box").style.display = "flex"
         tutorialDisplay = true
         read_more.innerHTML = ">Click to hide<"
     }
@@ -376,6 +376,7 @@ document.getElementById("read_more").addEventListener("click", () => {
             tutorial.style.display = "none"
         })
         tutorialDisplay = false
+        document.getElementById("tutorial-box").style.display = "none"
         read_more.innerHTML = ">Click to show Instruction<"
     }
 })
@@ -392,6 +393,7 @@ circle.fill();
 
 document.getElementById("circle").style.display = "none";
 document.getElementById("counter").style.display = "none";
+document.getElementById("tutorial-box").style.display = "none"
 
 container.style.flexDirection = "column";
 container.style.padding = "10px 10px 10px 10px";
