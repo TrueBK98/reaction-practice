@@ -6,8 +6,8 @@ var header = document.querySelector("#header-text");
 var tutorials = document.querySelectorAll(".tutorials");
 var read_more = document.querySelector("#read_more");
 var tutorial_box = document.querySelector("#tutorial-box")
-var audioContainer = document.querySelector("#audio-container")
 var audio = document.querySelector("#audio")
+var audioContainer = document.querySelector("#audio-container")
 var setTimer;
 var setCountdown;
 var milliseconds = 2000;
@@ -269,6 +269,7 @@ function judge() {
 }
 
 function mouseEntered() {
+    document.getElementById("sfx").play();
     cancelTimer();
     clearCountdown();
     numCircle++;
@@ -382,7 +383,6 @@ function applyMargin() {
 }
 
 function play() {
-    audioContainer.removeChild(audio);
     containerInitial();
     document.getElementById("circle").style.display = "initial";
     document.getElementById("counter").style.display = "initial";
@@ -401,6 +401,7 @@ else {
 }
 
 document.getElementById("start").addEventListener("click", () => {
+    audioContainer.removeChild(audio);
     container.removeChild(start);
     container.removeChild(tutorial_box)
     container.removeChild(read_more)
@@ -448,3 +449,4 @@ document.getElementById("tutorial-box").style.display = "none"
 
 container.style.flexDirection = "column";
 container.style.padding = "10px 10px 10px 10px";
+
