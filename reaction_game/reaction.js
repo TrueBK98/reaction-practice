@@ -16,7 +16,6 @@ function newScore() {
     localStorage.removeItem("scoresList");
     localStorage.setItem("scoresList", JSON.stringify(scores));
     scores.sort(function(a, b) {return b - a});
-    console.log(scores);
 };
 
 function leaderboard(endCounter, score, restart) {
