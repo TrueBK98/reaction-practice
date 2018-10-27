@@ -1,14 +1,58 @@
 var circle = document.querySelector('#circle');
-var counter = document.querySelector('#counter')
-var container = document.querySelector("#container")
-var start = document.querySelector("#start")
-var header = document.querySelector("#header-text")
-var tutorials = document.querySelectorAll(".tutorials") 
-var read_more = document.querySelector("#read_more")
+var counter = document.querySelector('#counter');
+var container = document.querySelector("#container");
+var start = document.querySelector("#start");
+var header = document.querySelector("#header-text");
+var tutorials = document.querySelectorAll(".tutorials");
+var read_more = document.querySelector("#read_more");
 var setTimer;
 var milliseconds = 2000;
 var numCircle = 0;
 var tutorialDisplay = false;
+var scores = [];
+
+function newScore() {
+    scores.push(numCircle);
+    localStorage.removeItem("scoresList");
+    localStorage.setItem("scoresList", JSON.stringify(scores));
+    scores.sort(function(a, b) {return b - a});
+    console.log(scores);
+};
+
+function leaderboard(endCounter, score, restart) {
+    var show = true
+    var leaderboard = document.createElement("div");
+    container.appendChild(leaderboard);
+    leaderboard.style.width = "30%";
+    leaderboard.style.height = "40%";
+    leaderboard.style.backgroundImage = "url('https://cdn.hipwallpaper.com/i/75/34/qHZtJ2.jpg')"
+    leaderboard.style.backgroundSize = "cover";
+    leaderboard.style.border = "2px solid black"
+    leaderboard.style.display = "none";
+    var showLeaderboard = document.createElement("button");
+    var text = document.createTextNode("Scores");
+    showLeaderboard.appendChild(text);
+    container.appendChild(showLeaderboard);
+    showLeaderboard.addEventListener("click", () => {
+        if (show == true) {
+            endCounter.style.display = "none";
+            score.style.display = "none";
+            restart.style.display = "none";
+            leaderboard.style.display = "initial";
+            show = false
+        }
+
+        else {
+            endCounter.style.display = "initial";
+            score.style.display = "initial";
+            restart.style.display = "initial";
+            endCounter.style.display = "flex";
+            leaderboard.style.display = "none";
+            show = true
+        }
+    })
+    return showLeaderboard;
+};
 
 function judge() {
     var score = document.createElement("h1")
@@ -56,6 +100,8 @@ function addReplay(eC, sc) {
     var text = document.createTextNode("Replay");
     restart.appendChild(text);
     container.appendChild(restart);
+    restart.style.marginBottom = "10px"
+    var lB = leaderboard(eC, sc, restart);
     restart.addEventListener("click", () => {
         milliseconds = 2000;
         numCircle = 0;
@@ -63,6 +109,7 @@ function addReplay(eC, sc) {
         container.removeChild(restart);
         container.removeChild(eC);
         container.removeChild(sc);
+        container.removeChild(lB);
     })
 }
 
@@ -98,6 +145,7 @@ function circleCounter() {
 }
 
 function end() {
+    newScore();
     document.getElementById("circle").style.display = "none";
     document.getElementById("counter").style.display = "none";
     containerChange();
@@ -135,6 +183,13 @@ function play() {
     circleCounter();
     applyMargin()
     document.getElementById("circle").addEventListener("mouseenter", mouseEntered);
+}
+
+if (localStorage.getItem("scoresList") === null) {
+    localStorage.setItem("scoresList", 0)
+}
+else {
+    scores = JSON.parse(localStorage.getItem("scoresList"));
 }
 
 document.getElementById("start").addEventListener("click", () => {
