@@ -6,6 +6,8 @@ var header = document.querySelector("#header-text");
 var tutorials = document.querySelectorAll(".tutorials");
 var read_more = document.querySelector("#read_more");
 var tutorial_box = document.querySelector("#tutorial-box")
+var audioContainer = document.querySelector("#audio-container")
+var audio = document.querySelector("#audio")
 var setTimer;
 var setCountdown;
 var milliseconds = 2000;
@@ -44,7 +46,7 @@ function leaderboard(endCounter, score, restart) {
     container.appendChild(leaderboard);
     leaderboard.style.width = "15%";
     leaderboard.style.height = "40%";
-    leaderboard.style.backgroundImage = "url('https://cdn.hipwallpaper.com/i/75/34/qHZtJ2.jpg')"
+    leaderboard.style.backgroundImage = "url('https://data.whicdn.com/images/277722986/original.gif')"
     leaderboard.style.backgroundSize = "cover";
     leaderboard.style.border = "2px solid black"
     leaderboard.style.display = "none";
@@ -271,7 +273,24 @@ function mouseEntered() {
     clearCountdown();
     numCircle++;
     circleCounter();
-    milliseconds -= (milliseconds / 20); 
+    if ( 10 > numCircle > 5) {
+        milliseconds -= (milliseconds / 40); 
+    }
+    else if (15 > numCircle > 10) {
+        milliseconds -= (milliseconds / 30); 
+    }
+    else if (20 > numCircle > 15) {
+        milliseconds -= (milliseconds / 20); 
+    }
+    else if (25 > numCircle > 20) {
+        milliseconds -= (milliseconds / 15); 
+    }
+    else if (30 > numCircle > 25) {
+        milliseconds -= (milliseconds / 10); 
+    }
+    else if (numCircle > 30) {
+        milliseconds -= (milliseconds / 5); 
+    }
     applyMargin();
 }
 
@@ -363,6 +382,7 @@ function applyMargin() {
 }
 
 function play() {
+    audioContainer.removeChild(audio);
     containerInitial();
     document.getElementById("circle").style.display = "initial";
     document.getElementById("counter").style.display = "initial";
