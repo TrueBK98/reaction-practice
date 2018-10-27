@@ -28,6 +28,184 @@ function leaderboard(endCounter, score, restart) {
     leaderboard.style.backgroundSize = "cover";
     leaderboard.style.border = "2px solid black"
     leaderboard.style.display = "none";
+    if (scores.length == 1) {
+        for (var i = 1; i < 6; i++) {
+            var line = document.createElement("div");
+            var lineScores = document.createTextNode(i + ".");
+            line.appendChild(lineScores);
+            leaderboard.appendChild(line)
+            line.style.fontSize = "xx-large"
+            line.style.marginTop = "1%";
+        }
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("Your: " + numCircle);
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+    }
+    else if (scores.length == 2) {
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("1. " + scores[0])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        for (var i = 2; i < 6; i++) {
+            var line = document.createElement("div");
+            var lineScores = document.createTextNode(i + ".");
+            line.appendChild(lineScores);
+            leaderboard.appendChild(line)
+            line.style.fontSize = "xx-large"
+            line.style.marginTop = "1%";
+        }
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("Your: " + numCircle);
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+    }
+    else if (scores.length == 3) {
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("1. " + scores[0])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("2. " + scores[1])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        for (var i = 3; i < 6; i++) {
+            var line = document.createElement("div");
+            var lineScores = document.createTextNode(i + ".");
+            line.appendChild(lineScores);
+            leaderboard.appendChild(line)
+            line.style.fontSize = "xx-large"
+            line.style.marginTop = "1%";
+        }
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("Your: " + numCircle);
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+    }
+    else if (scores.length == 4) {
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("1. " + scores[0])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("2. " + scores[1])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("3. " + scores[2])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        for (var i = 4; i < 6; i++) {
+            var line = document.createElement("div");
+            var lineScores = document.createTextNode(i + ".");
+            line.appendChild(lineScores);
+            leaderboard.appendChild(line)
+            line.style.fontSize = "xx-large"
+            line.style.marginTop = "1%";
+        }
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("Your: " + numCircle);
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+    }
+    else if (scores.length == 5) {
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("1. " + scores[0])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("2. " + scores[1])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = createElement("div");
+        var lineScores = createTextNode("3. " + scores[2])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("4. " + scores[3])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        for (var i = 5; i < 6; i++) {
+            var line = document.createElement("div");
+            var lineScores = document.createTextNode(i + ".");
+            line.appendChild(lineScores);
+            leaderboard.appendChild(line)
+            line.style.fontSize = "xx-large"
+            line.style.marginTop = "1%";
+        }
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("Your: " + numCircle);
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+    }
+    else if (scores.length >= 6) {
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("1. " + scores[0])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("2. " + scores[1])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("3. " + scores[2])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("4. " + scores[3])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("5. " + scores[4])
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "xx-large"
+        line.style.marginTop = "1%";
+    }
+    var line = document.createElement("div");
+    var lineScores = document.createTextNode("Your: " + numCircle);
+    line.appendChild(lineScores);
+    leaderboard.appendChild(line)
+    line.style.fontSize = "xx-large"
+    line.style.marginTop = "1%";
     var showLeaderboard = document.createElement("button");
     var text = document.createTextNode("Scores");
     showLeaderboard.appendChild(text);
