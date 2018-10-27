@@ -7,10 +7,23 @@ var tutorials = document.querySelectorAll(".tutorials");
 var read_more = document.querySelector("#read_more");
 var tutorial_box = document.querySelector("#tutorial-box")
 var setTimer;
+var setCountdown;
 var milliseconds = 2000;
 var numCircle = 0;
 var tutorialDisplay = false;
 var scores = [];
+
+function callCountdown() {
+    var timeLeft = milliseconds;
+    setCountdown = setInterval(function(){
+        timeLeft -= 10;
+        document.getElementById("countdown").innerText = "Time: " + (timeLeft / 1000).toFixed(2) + "s";
+    }, 10);
+};
+
+function clearCountdown() {
+    clearInterval(setCountdown);
+}
 
 function newScore() {
     scores.push(numCircle);
@@ -29,13 +42,14 @@ function leaderboard(endCounter, score, restart) {
     var show = true
     var leaderboard = document.createElement("div");
     container.appendChild(leaderboard);
-    leaderboard.style.width = "30%";
+    leaderboard.style.width = "15%";
     leaderboard.style.height = "40%";
     leaderboard.style.backgroundImage = "url('https://cdn.hipwallpaper.com/i/75/34/qHZtJ2.jpg')"
     leaderboard.style.backgroundSize = "cover";
     leaderboard.style.border = "2px solid black"
     leaderboard.style.display = "none";
     leaderboard.style.justifyContent = "space-between"
+    leaderboard.style.alignItems = "center"
     leaderboard.style.flexDirection = "column"
     if (scores.length == 1) {
         for (var i = 1; i < 6; i++) {
@@ -254,6 +268,7 @@ function judge() {
 
 function mouseEntered() {
     cancelTimer();
+    clearCountdown();
     numCircle++;
     circleCounter();
     milliseconds -= (milliseconds / 20); 
@@ -314,6 +329,7 @@ function circleCounter() {
 
 function end() {
     newScore();
+    document.getElementById("countdown").style.display = "none";
     document.getElementById("circle").style.display = "none";
     document.getElementById("counter").style.display = "none";
     containerChange();
@@ -323,12 +339,14 @@ function end() {
 
 function timer() {
     setTimer = setTimeout(function() {
+        clearInterval(setCountdown);
         end();
     }, milliseconds);
 }
 
 function cancelTimer() {
     clearTimeout(setTimer);
+    clearInterval(setCountdown);
 }
 
 function randomMargin() {
@@ -341,6 +359,7 @@ function applyMargin() {
     margin2Apply = randomMargin();
     document.getElementById("circle").style.margin = margin2Apply;
     timer();
+    callCountdown();
 }
 
 function play() {
@@ -348,6 +367,7 @@ function play() {
     document.getElementById("circle").style.display = "initial";
     document.getElementById("counter").style.display = "initial";
     document.getElementById("counter").style.display = "flex";
+    document.getElementById("countdown").style.display = "flex";
     circleCounter();
     applyMargin()
     document.getElementById("circle").addEventListener("mouseenter", mouseEntered);
@@ -391,12 +411,17 @@ counter.style.fontSize = "x-large";
 counter.style.fontWeight = "bold";
 counter.style.fontFamily = "Raleway, sans-serif";
 
+countdown.style.fontSize = "x-large";
+countdown.style.fontWeight = "bold";
+countdown.style.fontFamily = "Raleway, sans-serif";
+
 circle = circle.getContext("2d");
 circle.beginPath();
 circle.arc(150, 75, 75, 0, 2 * Math.PI);
 circle.fillStyle = "green"
 circle.fill();
 
+document.getElementById("countdown").style.display = "none";
 document.getElementById("circle").style.display = "none";
 document.getElementById("counter").style.display = "none";
 document.getElementById("tutorial-box").style.display = "none"
