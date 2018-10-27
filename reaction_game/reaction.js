@@ -179,12 +179,12 @@ function leaderboard(endCounter, score, restart) {
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
         line.style.fontSize = "200%"
+        var line = document.createElement("div");
+        var lineScores = document.createTextNode("Your: " + numCircle);
+        line.appendChild(lineScores);
+        leaderboard.appendChild(line)
+        line.style.fontSize = "200%"
     }
-    var line = document.createElement("div");
-    var lineScores = document.createTextNode("Your: " + numCircle);
-    line.appendChild(lineScores);
-    leaderboard.appendChild(line)
-    line.style.fontSize = "200%"
     var showLeaderboard = document.createElement("button");
     var text = document.createTextNode("Scores");
     showLeaderboard.appendChild(text);
