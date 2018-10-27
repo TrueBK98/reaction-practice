@@ -17,6 +17,12 @@ function newScore() {
     localStorage.removeItem("scoresList");
     localStorage.setItem("scoresList", JSON.stringify(scores));
     scores.sort(function(a, b) {return b - a});
+    for (var i = 0; i < scores.length; i++) {
+        if (scores[i] == scores[i + 1]) {
+            scores[i + 1] = 0;
+        }
+    };
+    scores.sort(function(a, b) {return b - a});
 };
 
 function leaderboard(endCounter, score, restart) {
