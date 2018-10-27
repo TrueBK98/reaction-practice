@@ -374,7 +374,7 @@ document.getElementById("read_more").addEventListener("click", () => {
             tutorial.style.display = "none"
         })
         tutorialDisplay = false
-        read_more.innerHTML = "Click to show Instruction<"
+        read_more.innerHTML = ">Click to show Instruction<"
     }
 })
 
