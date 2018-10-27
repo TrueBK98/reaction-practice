@@ -29,161 +29,162 @@ function leaderboard(endCounter, score, restart) {
     leaderboard.style.border = "2px solid black"
     leaderboard.style.display = "none";
     leaderboard.style.justifyContent = "space-between"
+    leaderboard.style.flexDirection = "column"
     if (scores.length == 1) {
         for (var i = 1; i < 6; i++) {
             var line = document.createElement("div");
             var lineScores = document.createTextNode(i + ".");
             line.appendChild(lineScores);
             leaderboard.appendChild(line)
-            line.style.fontSize = "200%"
+            line.style.fontSize = "170%"
         }
         var line = document.createElement("div");
         var lineScores = document.createTextNode("Your: " + numCircle);
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
     }
     else if (scores.length == 2) {
         var line = document.createElement("div");
         var lineScores = document.createTextNode("1. " + scores[0])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         for (var i = 2; i < 6; i++) {
             var line = document.createElement("div");
             var lineScores = document.createTextNode(i + ".");
             line.appendChild(lineScores);
             leaderboard.appendChild(line)
-            line.style.fontSize = "200%"
+            line.style.fontSize = "170%"
 
         }
         var line = document.createElement("div");
         var lineScores = document.createTextNode("Your: " + numCircle);
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
     }
     else if (scores.length == 3) {
         var line = document.createElement("div");
         var lineScores = document.createTextNode("1. " + scores[0])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("2. " + scores[1])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         for (var i = 3; i < 6; i++) {
             var line = document.createElement("div");
             var lineScores = document.createTextNode(i + ".");
             line.appendChild(lineScores);
             leaderboard.appendChild(line)
-            line.style.fontSize = "200%"
+            line.style.fontSize = "170%"
 
         }
         var line = document.createElement("div");
         var lineScores = document.createTextNode("Your: " + numCircle);
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
     }
     else if (scores.length == 4) {
         var line = document.createElement("div");
         var lineScores = document.createTextNode("1. " + scores[0])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("2. " + scores[1])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("3. " + scores[2])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         for (var i = 4; i < 6; i++) {
             var line = document.createElement("div");
             var lineScores = document.createTextNode(i + ".");
             line.appendChild(lineScores);
             leaderboard.appendChild(line)
-            line.style.fontSize = "200%"
+            line.style.fontSize = "170%"
 
         }
         var line = document.createElement("div");
         var lineScores = document.createTextNode("Your: " + numCircle);
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
     }
     else if (scores.length == 5) {
         var line = document.createElement("div");
         var lineScores = document.createTextNode("1. " + scores[0])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("2. " + scores[1])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
-        var line = createElement("div");
+        line.style.fontSize = "170%"
+        var line = document.createElement("div");
         var lineScores = createTextNode("3. " + scores[2])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("4. " + scores[3])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         for (var i = 5; i < 6; i++) {
             var line = document.createElement("div");
             var lineScores = document.createTextNode(i + ".");
             line.appendChild(lineScores);
             leaderboard.appendChild(line)
-            line.style.fontSize = "200%"
+            line.style.fontSize = "170%"
 
         }
         var line = document.createElement("div");
         var lineScores = document.createTextNode("Your: " + numCircle);
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
     }
     else if (scores.length >= 6) {
         var line = document.createElement("div");
         var lineScores = document.createTextNode("1. " + scores[0])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("2. " + scores[1])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("3. " + scores[2])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("4. " + scores[3])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("5. " + scores[4])
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
         var line = document.createElement("div");
         var lineScores = document.createTextNode("Your: " + numCircle);
         line.appendChild(lineScores);
         leaderboard.appendChild(line)
-        line.style.fontSize = "200%"
+        line.style.fontSize = "170%"
     }
     var showLeaderboard = document.createElement("button");
     var text = document.createTextNode("Scores");
@@ -195,6 +196,7 @@ function leaderboard(endCounter, score, restart) {
             score.style.display = "none";
             restart.style.display = "none";
             leaderboard.style.display = "initial";
+            leaderboard.style.display = "flex";
             show = false
         }
 
