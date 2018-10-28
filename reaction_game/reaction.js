@@ -318,6 +318,7 @@ function finalCounter(score) {
     endCounter.style.width = "18%";
     endCounter.style.height = "50px";
     endCounter.style.backgroundImage  = "url('https://orig00.deviantart.net/76e6/f/2018/011/1/c/output_dmfg1x_by_crazyraingirl-dbzpev2.gif')";
+    endCounter.style.backgroundSize = "cover";
     endCounter.style.display = "flex";
     endCounter.style.justifyContent = "center";
     endCounter.style.alignItems = "center";
